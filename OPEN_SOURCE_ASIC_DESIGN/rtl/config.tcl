@@ -92,4 +92,4 @@ set ::env(DRT_OPT_ITERS) 20
 # SIGNOFF
 ##################################################################
 set ::env(RUN_CVC) 1   
-set ::env(RUN_IRDROP_REPORT) 0   
+set ::env(RUN_IRDROP_REPORT) 1
