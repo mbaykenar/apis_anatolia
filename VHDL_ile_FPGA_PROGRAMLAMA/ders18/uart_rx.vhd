@@ -22,7 +22,7 @@ constant c_bittimerlim 	: integer := c_clkfreq/c_baudrate;
 type states is (S_IDLE, S_START, S_DATA, S_STOP);
 signal state : states := S_IDLE;
 
-signal bittimer : integer range 0 to c_bittimerlim := 0;
+signal bittimer : integer range 0 to c_bittimerlim*3/2 := 0;
 signal bitcntr	: integer range 0 to 7 := 0;
 signal shreg	: std_logic_vector (7 downto 0) := (others => '0');
 
@@ -68,7 +68,7 @@ if (rising_edge(clk)) then
 		
 		when S_STOP =>
 		
-			if (bittimer = c_bittimerlim-1) then
+			if (bittimer = c_bittimerlim*3/2-1) then
 				state			<= S_IDLE;
 				bittimer		<= 0;
 				rx_done_tick_o	<= '1';
