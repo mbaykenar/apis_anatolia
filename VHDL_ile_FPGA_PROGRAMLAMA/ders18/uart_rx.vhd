@@ -68,7 +68,7 @@ if (rising_edge(clk)) then
 		
 		when S_STOP =>
 		
-			if (bittimer = c_bittimerlim*3/2-1) then
+			if (bittimer = c_bittimerlim-1) then
 				state			<= S_IDLE;
 				bittimer		<= 0;
 				rx_done_tick_o	<= '1';
